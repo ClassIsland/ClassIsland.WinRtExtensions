@@ -3,6 +3,6 @@ name: ClassIsland Windows 集成功能扩展  # 插件名称
 apiVersion: 1.4.3.0  # 插件面向的 ClassIsland 版本
 description: 为在 Windows 10 1803 以及以上的系统扩展来自 Windows App SDK 的功能。  # 插件描述
 entranceAssembly: "ClassIsland.WinRtExtensions.dll"  # 插件入口程序集
-url: https://github.com/ClassIsland/ExamplePlugins  # 插件 Url
+url: https://github.com/ClassIsland/ClassIsland.WinRtExtensions  # 插件 Url
 author: HelloWRC  # 插件作者
-version: 1.0.0.0  # 插件版本
+version: 0.0.0.0  # 插件版本
