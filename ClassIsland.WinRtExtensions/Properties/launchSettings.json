@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "ClassIsland.WinRtExtensions": {
+      "commandName": "Project"
+    },
+    "配置文件 1": {
+      "commandName": "Executable",
+      "executablePath": "E:\\Coding\\ClassIsland\\ClassIsland\\bin\\Debug\\net8.0-windows\\ClassIsland.exe",
+      "commandLineArgs": "-epp E:\\Coding\\ClassIsland.WinRtExtensions\\ClassIsland.WinRtExtensions\\bin\\Debug\\net8.0-windows10.0.18362.0",
+      "workingDirectory": "E:\\Coding\\ClassIsland\\ClassIsland\\bin\\Debug\\net8.0-windows\\"
+    }
+  }
+}

@@ -11,23 +11,14 @@
 		<PackageReference Include="ClassIsland.PluginSdk" Version="1.4.3">
 			<ExcludeAssets>runtime</ExcludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
 	</ItemGroup>
 	<ItemGroup>
-	  <None Update="Assets\TestHeroImage.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="icon.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
 	  <None Update="manifest.yml">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
 	<ItemGroup>
-	  <None Update="README.md">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
+	  <Folder Include="Views\" />
+	  <Folder Include="新文件夹\" />
 	</ItemGroup>
-
 </Project>
