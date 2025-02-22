@@ -1,0 +1,49 @@
+﻿<ci:AuthorizeProviderControlBase
+             x:TypeArguments="authorizeProviderSettings:WindowsHelloAuthorizeProviderSettings"
+             x:Class="ClassIsland.WinRtExtensions.Controls.AuthorizeProviders.WindowsHelloAuthorizeProvider"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClassIsland.WinRtExtensions.Controls.AuthorizeProviders"
+             xmlns:ci="http://classisland.tech/schemas/xaml/core"
+             xmlns:authorizeProviderSettings="clr-namespace:ClassIsland.WinRtExtensions.Models.AuthorizeProviderSettings"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ci:AuthorizeProviderControlBase.Resources>
+        <materialDesign:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <ci:BooleanToVisibilityReConverter x:Key="BooleanToVisibilityReConverter" />
+        <ci:BooleanToBooleanReConverter x:Key="InvertBooleanConverter" />
+    </ci:AuthorizeProviderControlBase.Resources>
+    <StackPanel DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:WindowsHelloAuthorizeProvider}}">
+        <StackPanel Orientation="Horizontal" Margin="0 4 0 0" IsEnabled="{Binding IsWorking, Converter={StaticResource InvertBooleanConverter}}">
+            <Button Style="{StaticResource MaterialDesignFlatButton}" Click="ButtonSetupWindowsHello_OnClick"
+                    HorizontalAlignment="Left"
+                    Visibility="{Binding IsEditingMode, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <ci:IconText Kind="MicrosoftWindows" Text="设置 Windows Hello"/>
+            </Button>
+            <Button Style="{StaticResource MaterialDesignFlatButton}" Click="ButtonAuthenticateWindowsHello_OnClick"
+                    HorizontalAlignment="Left"
+                    Visibility="{Binding IsEditingMode, Converter={StaticResource BooleanToVisibilityReConverter}}">
+                <ci:IconText Kind="MicrosoftWindows" Text="使用 Windows Hello 继续"/>
+            </Button>
+            <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"
+                         IsIndeterminate="True"
+                         VerticalAlignment="Center"
+                         Margin="4 0 0 0"
+                         Visibility="{Binding IsWorking, Converter={StaticResource BooleanToVisibilityConverter}}"
+                         Width="18" Height="18"/>
+            <materialDesign:PackIcon Kind="Check"
+                                     VerticalAlignment="Center"
+                                     Margin="4 0 0 0"
+                                     ToolTip="成功"
+                                     Width="18" Height="18"
+                                     Visibility="{Binding IsSuccess, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        </StackPanel>
+        <TextBlock Text="{Binding ErrorDetails, Mode=OneWay}"
+                   Foreground="IndianRed" TextWrapping="Wrap"
+                   Visibility="{Binding IsError, Converter={StaticResource BooleanToVisibilityConverter}}"
+                   Margin="0 4 0 0"/>
+    </StackPanel>
+</ci:AuthorizeProviderControlBase>
